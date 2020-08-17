@@ -8,7 +8,8 @@ tslint.json
 * how to express
 
 npm i -S body-parser sequelize sequelize-cli pg pg-hstore  
-npm i @types/sequelize -D
+npm install --save-dev @types/bluebird @types/validator @types/sequelize
+
 
  node_modules/.bin/sequelize init     
 
@@ -19,3 +20,21 @@ npm i @types/sequelize -D
 
 *
 
+
+VSCOde: https://code.visualstudio.com/docs/typescript/typescript-compiling
+https://code.visualstudio.com/docs/languages/javascript
+
+
+setup with vscode:
+
+https://stackoverflow.com/questions/39668731/what-typescript-version-is-visual-studio-code-using-how-to-update-it/39676463
+
+
+/usr/local/lib/node_modules/typescript/lib
+
+install tslint, typescript:
+
+npm install -g tslint
+npm install -g typescript
+
+go to vscode, extension: install tslint
