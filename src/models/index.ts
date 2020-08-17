@@ -19,7 +19,7 @@ let models = [Teacher]
 
 models.forEach(model => model.initialize(sequelize));
 
-sequelize.sync({force: true})
+sequelize.sync({force: false})
 export {
   sequelize, Teacher
 }
