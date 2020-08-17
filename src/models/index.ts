@@ -1,6 +1,6 @@
 'use strict';
 const env = process.env.NODE_ENV || 'development';
-// import Class from './class'
+import Class from './class'
 // import Student from './student'
 import Teacher from './teacher'
 
@@ -15,13 +15,16 @@ const sequelize = new Sequelize(
 );
 
 
-let models = [Teacher]
+let models = [Teacher, Class]
 
 models.forEach(model => model.initialize(sequelize));
 
-sequelize.sync({force: false})
+Class.belongsTo(Teacher)
+Teacher.hasMany(Class)
+
+sequelize.sync({force: true})
 export {
-  sequelize, Teacher
+  sequelize, Teacher, Class
 }
 
 //Class.belongsToMany(Student, { throught })

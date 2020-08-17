@@ -1,4 +1,4 @@
-import { Teacher } from '../models'
+import { Class, Teacher } from '../models'
 
 async function list(): Promise<any[]> {
     return await Teacher.findAll({
@@ -38,11 +38,28 @@ async function deleteTeacher(id: number): Promise<void> {
     await teacher.destroy()
 }
 
+// get classes
+async function getClasses(id: number): Promise<any[]> {
+    return await Class.findAll({
+        include: [
+            {
+                model: Teacher,
+                where: { id },
+                required: true,
+            }
+        ],
+        order: [['id', 'ASC']],
+    })
+}
+
+
+
 export default {
     list,
     create,
     get,
     update,
-    deleteTeacher
+    deleteTeacher,
+    getClasses
 
 }

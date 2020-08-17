@@ -26,6 +26,10 @@ router.route('/:id(\\d+)')
     })
     .delete(async (req, res, next) => {
         res.json(await controller.deleteTeacher(+req.params.id));
-    })
+    });
+
+router.route('/:id(\\d+)/classes').get(async (req, res, next) => {
+    res.json(await controller.getClasses(+req.params.id));
+})
 
 export default router;
