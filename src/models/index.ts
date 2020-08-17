@@ -1,5 +1,8 @@
 'use strict';
 const env = process.env.NODE_ENV || 'development';
+// import Class from './class'
+// import Student from './student'
+import Teacher from './teacher'
 
 import { Options, Sequelize } from 'sequelize';
 import config from '../config/config.json';
@@ -8,8 +11,21 @@ const sequelize = new Sequelize(
   configJson.database,
   configJson.username,
   configJson.password,
-  configJson
+  configJson as Options
 );
+
+
+let models = [Teacher]
+
+models.forEach(model => model.initialize(sequelize));
+
+sequelize.sync({force: true})
+export {
+  sequelize, Teacher
+}
+
+//Class.belongsToMany(Student, { throught })
+
 // const fs = require('fs');
 // const path = require('path');
 // const Sequelize = require('sequelize');
