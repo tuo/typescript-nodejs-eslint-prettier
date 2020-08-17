@@ -38,3 +38,7 @@ npm install -g tslint
 npm install -g typescript
 
 go to vscode, extension: install tslint
+
+
+https://github.com/thrymgjol/typescript-sequelize-example/blob/master/app/controllers/teachers.ts
+
