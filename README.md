@@ -42,3 +42,8 @@ go to vscode, extension: install tslint
 
 https://github.com/thrymgjol/typescript-sequelize-example/blob/master/app/controllers/teachers.ts
 
+
+
+#### 
+curl http://localhost:3000/teachers
+curl --header "Content-Type: application/json" -X POST --data '{"first":"juan","last":"fluxa"}'  http://localhost:3000/teachers
