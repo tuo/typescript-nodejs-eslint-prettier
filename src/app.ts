@@ -1,3 +1,11 @@
+import { performance } from 'perf_hooks';
+const startTime = performance.now();
+
+console.log(`┌────────────────────────────────────────────────────────────┐`);
+console.log(`│    Starting: ${new Date().toISOString()}                      │`);
+console.log(`└────────────────────────────────────────────────────────────┘`);
+
+
 import express from 'express';
 import bodyparser from 'body-parser'
 import router from './routes'
@@ -18,5 +26,7 @@ app.listen(port, err => {
     if(err){
         return console.error(err);
     }
-    return console.log(`server is1 listening on ${port}`);
+    console.log(`server is1 listening on ${port}`);
+    console.log(` * imports done in ${(performance.now() - startTime).toFixed(3)}ms`);
+    return
 })

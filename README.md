@@ -21,6 +21,12 @@ what's new in sequelize6: https://sequelize.org/master/manual/typescript.html
 
 if you use sequelize-typescript1 , make sure using sequelize5 not 6
 
+or using sequlize6 with foloowing config: https://github.com/nestjs/nest/issues/4976
+
+npm i sequelize-typescript@next
+"sequelize-typescript": "^2.0.0-beta.0"
+"sequelize": "^6.1.1"
+
 *
 
 
@@ -50,3 +56,24 @@ https://github.com/thrymgjol/typescript-sequelize-example/blob/master/app/contro
 #### 
 curl http://localhost:3000/teachers
 curl --header "Content-Type: application/json" -X POST --data '{"first":"juan","last":"fluxa"}'  http://localhost:3000/teachers
+
+
+### PROBLEMS
+
+* tsc node project start slow 
+
+https://github.com/TypeStrong/ts-node/issues/754
+
+    "dev": "ts-node-dev --respawn --transpile-only ./src/app.ts",
+    "start-nodemon": "nodemon -e ts -w ./src -x npm run dev"
+
+added `--transpile-only` 
+
+**ts-node-dev**
+
+>> It restarts target node process when any of required files changes (as standard node-dev) but shares Typescript compilation process between restarts. This significantly increases speed of restarting comparing to node-dev -r ts-node/register ..., nodemon -x ts-node ... variations because there is no need to instantiate ts-node compilation each time.
+
+
+ts-node-dev --respawn --transpile-only ./src/app.ts"
+
+no need for nodemon

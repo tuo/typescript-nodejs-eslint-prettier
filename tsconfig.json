@@ -11,5 +11,8 @@
     "emitDecoratorMetadata": true
   },
   "include": ["src/**/*.ts"],
+  "exclude": [
+    "**/node_modules/*"
+  ],
   "lib": ["es2015"]
 }

@@ -1,7 +1,8 @@
 import {Class, Teacher} from '../models'
-//import * as models from '../models'
+// import * as models from '../models'
 
 async function list(): Promise<any[]> {
+    // models.Teacher
     return await Teacher.findAll({
         order: [['id', 'ASC']],
     })

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "tsc && node dist/app.js",
     "dev": "ts-node-dev --respawn --transpile-only ./src/app.ts",
-    "start-nodemon": "nodemon -e ts -w ./src -x npm run start"
+    "start-nodemon": "nodemon -e ts -w ./src -x npm run dev"
   },
   "keywords": [],
   "author": "",
