@@ -4,6 +4,7 @@ const env = process.env.NODE_ENV || 'development';
 //import Student from './student'
 import Class from './class'
 import Teacher from './teacher'
+// import models
 
 import { Sequelize } from 'sequelize-typescript';
 import config from '../config/config.json';
@@ -20,10 +21,10 @@ const sequelize = new Sequelize(
 //   Class,
 //   Teacher
 // };
-sequelize.addModels([Class, Teacher]);
+sequelize.addModels([Teacher, Class,]);// add models
 //sequelize.sync({force: true})
 
-export {sequelize, Teacher, Class}
+export {sequelize, Teacher, Class,}; // export models
 
 //Class.belongsToMany(Student, { throught })
 
