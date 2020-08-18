@@ -15,8 +15,11 @@ npm install --save-dev @types/bluebird @types/validator @types/sequelize
 
  
 
-* how to integrate with sequlize
+* how to integrate with sequlize 6
 
+what's new in sequelize6: https://sequelize.org/master/manual/typescript.html
+
+if you use sequelize-typescript1 , make sure using sequelize5 not 6
 
 *
 

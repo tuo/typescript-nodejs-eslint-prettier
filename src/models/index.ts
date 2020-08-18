@@ -1,30 +1,38 @@
 'use strict';
 const env = process.env.NODE_ENV || 'development';
-import Class from './class'
+
 // import Student from './student'
+import Class from './class'
 import Teacher from './teacher'
 
-import { Options, Sequelize } from 'sequelize';
+import { Sequelize } from 'sequelize-typescript';
 import config from '../config/config.json';
 const configJson = config[env];
 const sequelize = new Sequelize(
   configJson.database,
   configJson.username,
   configJson.password,
-  configJson as Options
+  configJson,
 );
 
+//sequelize.addModels([__dirname + '/**/*.ts']);
+const models = [
+  Class,
+  Teacher
+];
+sequelize.addModels(models);
 
-let models = [Teacher, Class]
 
-models.forEach(model => model.initialize(sequelize));
+// let models = [Teacher, Class]
 
-Class.belongsTo(Teacher)
-Teacher.hasMany(Class)
+// models.forEach(model => model.initialize(sequelize));
 
-sequelize.sync({force: true})
+// Class.belongsTo(Teacher)
+// Teacher.hasMany(Class)
+
+//sequelize.sync({force: true})
 export {
-  sequelize, Teacher, Class
+  sequelize, Class, Teacher
 }
 
 //Class.belongsToMany(Student, { throught })
