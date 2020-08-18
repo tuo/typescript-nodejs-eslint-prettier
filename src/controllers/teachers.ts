@@ -1,4 +1,5 @@
 import {Class, Teacher} from '../models'
+//import * as models from '../models'
 
 async function list(): Promise<any[]> {
     return await Teacher.findAll({
@@ -20,15 +21,14 @@ async function get(id: number): Promise<any> {
 }
 
 async function update(id: number, first: string, last: string): Promise<void> {
-    // const teacher = await Teacher.findByPk(id)
-    // if(!teacher)
-    //     throw Error('404')
+    const teacher = await Teacher.findByPk(id)
+    if(!teacher)
+        throw Error('404')
 
-    // await teacher.update({
-    //     first,
-    //     last
-    // })
-    await Teacher.update<Teacher>({first, last}, {where: {id}})
+    await teacher.update({
+        first,
+        last
+    })
 }
 
 async function deleteTeacher(id: number): Promise<void> {
