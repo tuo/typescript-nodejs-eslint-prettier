@@ -78,3 +78,5 @@ no need for nodemon
 "eslint.autoFixOnSave": true,  
 "eslint.alwaysShowStatus": true,  
 "files.autoSave": "onFocusChange",
+
+https://dev.to/caelinsutch/setting-up-a-typescript-nodejs-application-with-prettier-and-eslint-53jc
