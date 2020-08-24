@@ -1,7 +1,7 @@
 import { Class, Teacher } from '../models';
 // import * as models from '../models'
 
-async function list(): Promise<any[]> {
+async function list(): Promise<Teacher[]> {
   // models.Teacher
   return await Teacher.findAll({
     order: [['id', 'ASC']],
@@ -16,7 +16,7 @@ async function create(first: string, last: string): Promise<number> {
   });
   return teacher.id;
 }
-async function get(id: number): Promise<any> {
+async function get(id: number): Promise<Teacher | null> {
   const teacher = await Teacher.findByPk(id);
   if (!teacher) throw new Error(`404 not found for teacher: ${id}`);
   return teacher;
@@ -40,7 +40,7 @@ async function deleteTeacher(id: number): Promise<void> {
 }
 
 // get classes
-async function getClasses(id: number): Promise<any[]> {
+async function getClasses(id: number): Promise<Class[]> {
   return await Class.findAll({
     include: [
       {
