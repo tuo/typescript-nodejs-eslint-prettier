@@ -1,7 +1,6 @@
-import { Router } from 'express'
-import teacherRoutes from './teachers'
+import { Router } from 'express';
+import teacherRoutes from './teachers';
 
-const router = Router()
-
+const router = Router();
 router.use('/teachers', teacherRoutes);
-export default router
+export default router;

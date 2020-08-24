@@ -1,32 +1,27 @@
-'use strict';
-const env = process.env.NODE_ENV || 'development';
-
-//import Student from './student'
-import Class from './class'
-import Teacher from './teacher'
+// import Student from './student'
+import { Sequelize } from 'sequelize-typescript';
+import Class from './class';
+import Teacher from './teacher';
 // import models
 
-import { Sequelize } from 'sequelize-typescript';
 import config from '../config/config.json';
-const configJson = config[env];
-const sequelize = new Sequelize(
-  configJson.database,
-  configJson.username,
-  configJson.password,
-  configJson,
-);
 
-//sequelize.addModels([__dirname + '/**/*.ts']);
+const env = process.env.NODE_ENV || 'development';
+
+const configJson = config[env];
+const sequelize = new Sequelize(configJson.database, configJson.username, configJson.password, configJson);
+
+// sequelize.addModels([__dirname + '/**/*.ts']);
 // const models = {
 //   Class,
 //   Teacher
 // };
-sequelize.addModels([Teacher, Class,]);// add models
-//sequelize.sync({force: true})
+sequelize.addModels([Teacher, Class]); // add models
+// sequelize.sync({force: true})
 
-export {sequelize, Teacher, Class,}; // export models
+export { sequelize, Teacher, Class }; // export models
 
-//Class.belongsToMany(Student, { throught })
+// Class.belongsToMany(Student, { throught })
 
 // const fs = require('fs');
 // const path = require('path');
