@@ -3,12 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/app.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "scripts": {
     "start": "tsc && node dist/app.js",
     "dev": "ts-node-dev --respawn --transpile-only ./src/app.ts",
     "start-nodemon": "nodemon -e ts -w ./src -x npm run dev",
     "lint": "eslint src/**/*.ts",
-    "format": "eslint src/**/*.ts --fix"
+    "format": "eslint src/**/*.ts --fix",
+    "pretty-quick": "pretty-quick"
   },
   "keywords": [],
   "author": "",
@@ -42,10 +48,5 @@
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.22.3",
     "sequelize-typescript": "^1.1.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   }
 }
