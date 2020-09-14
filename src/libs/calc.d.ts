@@ -1,10 +1,10 @@
 export function getArrayLength(arr: any[]): number;
 export const maxInterval: number;
 
-export type ArrayMetadata = {
+export type ArrayMetadata<ArrType> = {
   length: number;
-  firstObject: any | undefined;
+  firstObject: ArrType | undefined;
 };
-export function getArrayMetadata(arr: any[]): ArrayMetadata;
+export function getArrayMetadata<ArrType>(arr: ArrType[]): ArrayMetadata<ArrType>;
 
 //This example is a good case for using generics to provide richer type information:

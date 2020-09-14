@@ -13,7 +13,8 @@ router
   .get(async (req, res, next) => {
     const teachers = await controller.list();
     const samples = [3, 2, 4];
-    const result = getArrayMetadata(samples);
+    const result = getArrayMetadata<number>(samples);
+    //result.firstObject.toFixed
     res.json({ teachers, timestamp: util.formatDate(new Date()), result: result });
   })
   .post(async (req, res, next) => {
