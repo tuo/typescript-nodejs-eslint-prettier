@@ -80,3 +80,9 @@ no need for nodemon
 "files.autoSave": "onFocusChange",
 
 https://dev.to/caelinsutch/setting-up-a-typescript-nodejs-application-with-prettier-and-eslint-53jc
+
+### How to add custom js to typescript
+
+TypeScript 里的.d.ts 语法https://jerry.blog.csdn.net/article/details/108490289
+
+[ts 基础] 如何编写一个 typescript 声明文件(xxx.d.ts)https://blog.csdn.net/weixin_40438455/article/details/103779838
