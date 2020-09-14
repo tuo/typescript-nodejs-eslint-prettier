@@ -1,9 +1,10 @@
 import { Router } from 'express';
 
 import controller from '../controllers/teachers';
+import { getArrayMetadata } from '../libs/calc';
 
 import * as util from '../libs/util';
-import * as calc from '../libs/calc';
+//import * as calc from '../libs/calc.d';
 
 const router = Router();
 
@@ -11,7 +12,9 @@ router
   .route('/')
   .get(async (req, res, next) => {
     const teachers = await controller.list();
-    res.json({ teachers, timestamp: util.formatDate(new Date()), maxInterval: calc.maxInterval });
+    const samples = [3, 2, 4];
+    const result = getArrayMetadata(samples);
+    res.json({ teachers, timestamp: util.formatDate(new Date()), result: result });
   })
   .post(async (req, res, next) => {
     const result = await controller.create(req.body.first, req.body.last);
