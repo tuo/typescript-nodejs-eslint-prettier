@@ -48,7 +48,9 @@
 //declare function formatDate(date: Date, format: string): string;
 //declare namespace util {}
 
-declare namespace util {
-  function formatDate(date: Date, format?: string): string;
-}
-export = util;
+// declare namespace util {
+//   function formatDate(date: Date, format?: string): string;
+// }
+// export = util;
+
+export function formatDate(date: Date, format?: string): string;

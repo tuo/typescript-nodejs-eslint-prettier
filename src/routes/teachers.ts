@@ -3,6 +3,7 @@ import { Router } from 'express';
 import controller from '../controllers/teachers';
 
 import * as util from '../libs/util';
+import * as calc from '../libs/calc';
 
 const router = Router();
 
@@ -10,7 +11,7 @@ router
   .route('/')
   .get(async (req, res, next) => {
     const teachers = await controller.list();
-    res.json({ teachers, timestamp: util.formatDate(new Date()) });
+    res.json({ teachers, timestamp: util.formatDate(new Date()), maxInterval: calc.maxInterval });
   })
   .post(async (req, res, next) => {
     const result = await controller.create(req.body.first, req.body.last);
