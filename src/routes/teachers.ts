@@ -2,13 +2,15 @@ import { Router } from 'express';
 
 import controller from '../controllers/teachers';
 
+import * as util from '../libs/util';
+
 const router = Router();
 
 router
   .route('/')
   .get(async (req, res, next) => {
     const teachers = await controller.list();
-    res.json(teachers);
+    res.json({ teachers, timestamp: util.formatDate(new Date()) });
   })
   .post(async (req, res, next) => {
     const result = await controller.create(req.body.first, req.body.last);
