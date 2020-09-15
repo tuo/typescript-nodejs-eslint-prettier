@@ -54,3 +54,15 @@
 // export = util;
 
 export function formatDate(date: Date, format?: string): string;
+
+//https://www.typescriptlang.org/play
+// declare const jwt: any;
+// declare const _: any;
+// declare const moment: any;
+// declare function asyncForEach(array: any, callback: any): Promise<void>;
+// declare function createOrUpdate(Model: any, whereCondition: any, restData: any, transaction?: null): Promise<{
+//     record: any;
+//     created: boolean;
+// }>;
+// declare function validateEmail(email: any): boolean;
+// declare const formatDate: (date: any, format?: string) => any;
