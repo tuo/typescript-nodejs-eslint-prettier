@@ -2,8 +2,9 @@ import { Router } from 'express';
 
 import controller from '../controllers/teachers';
 import { getArrayMetadata } from '../libs/calc';
+import { formatDate } from '../libs/util';
 
-import * as util from '../libs/util';
+// import * as util from '../libs/util';
 //import * as calc from '../libs/calc.d';
 
 const router = Router();
@@ -15,7 +16,7 @@ router
     const samples = [3, 2, 4];
     const result = getArrayMetadata<number>(samples);
     //result.firstObject.toFixed
-    res.json({ teachers, timestamp: util.formatDate(new Date()), result: result });
+    res.json({ teachers, timestamp: formatDate(new Date()), result: result });
   })
   .post(async (req, res, next) => {
     const result = await controller.create(req.body.first, req.body.last);
