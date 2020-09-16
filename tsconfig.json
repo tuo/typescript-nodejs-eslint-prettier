@@ -11,9 +11,9 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.ts", "src/libs"],
-  "exclude": ["**/node_modules/*", "src/**/*.js"]
+  "include": ["src/**/*.ts", "src/libs/*.js"],
+  "exclude": ["**/node_modules/*"]
 }
