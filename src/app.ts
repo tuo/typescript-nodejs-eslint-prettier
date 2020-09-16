@@ -16,12 +16,17 @@ import fs from 'fs';
 import path from 'path';
 
 const db = {};
-const models: Model[] = [];
+const models: any[] = [];
 const basename = path.basename(__filename);
 console.log('basename: ', basename);
 const files = fs.readdirSync(__dirname + '/models/').filter((file) => {
   console.log(file);
-  return file.indexOf('.') !== 0 && file !== 'index.ts' && file.slice(-3) === '.ts';
+  return (
+    file.indexOf('.') !== 0 &&
+    file !== 'index.ts' &&
+    file !== 'index.js' &&
+    (file.slice(-3) === '.ts' || file.slice(-3) === '.js')
+  );
 });
 //const models: Model[] = files.map((file) => import(path.join(__dirname, file)).then((model) => model));
 console.log('files: ', files);
