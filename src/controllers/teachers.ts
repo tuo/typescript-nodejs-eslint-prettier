@@ -1,5 +1,8 @@
-import { Class, Teacher } from '../models';
+//import { Class, Teacher } from '../models';
 // import * as models from '../models'
+
+import Teacher from '../models/teacher';
+import Class from '../models/class';
 
 async function list(): Promise<Teacher[]> {
   // models.Teacher

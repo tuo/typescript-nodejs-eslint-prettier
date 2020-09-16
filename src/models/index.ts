@@ -1,7 +1,9 @@
 // import Student from './student'
-import { Sequelize } from 'sequelize-typescript';
-import Class from './class';
-import Teacher from './teacher';
+import { Sequelize, Model } from 'sequelize-typescript';
+import fs from 'fs';
+import path from 'path';
+// import Class from './class';
+// import Teacher from './teacher';
 // import models
 
 import config from '../config/config.json';
@@ -16,10 +18,46 @@ const sequelize = new Sequelize(configJson.database, configJson.username, config
 //   Class,
 //   Teacher
 // };
-sequelize.addModels([Teacher, Class]); // add models
+//sequelize.addModels([Teacher, Class]); // add models
 // sequelize.sync({force: true})
 
-export { sequelize, Teacher, Class }; // export models
+// export { sequelize, Teacher, Class }; // export models
+
+// const db = {};
+// const models: Model[] = [];
+// const basename = path.basename(__filename);
+// console.log('basename: ', basename);
+// const files = fs.readdirSync(__dirname).filter((file) => {
+//   return file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.ts';
+// });
+// //const models: Model[] = files.map((file) => import(path.join(__dirname, file)).then((model) => model));
+// console.log('files: ', files);
+// (async () => {
+//   console.log('files: ', files);
+//   for await (const file of files) {
+//     const model = await import(path.join(__dirname, file));
+//     models.push(model.default);
+//   }
+//   console.log('models', models);
+//   sequelize.addModels(models);
+// })();
+
+export { sequelize };
+
+// const promisesAll = files.map((file) => import(path.join(__dirname, file)));
+// Promise.all(promisesAll).then((values) => {
+//   models.push(values.map((t) => t.default));
+// });
+
+// Promise.all();
+// for (const file of files) {
+//   //sequelize.import();
+//   //models.push(model.default);
+// }
+// console.log('models', models);
+// sequelize.addModels(models);
+
+// console.log('finally', models);
 
 // Class.belongsToMany(Student, { throught })
 
