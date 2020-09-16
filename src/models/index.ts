@@ -5,10 +5,17 @@ import Teacher from './teacher';
 // import models
 
 import config from '../config/config.json';
+import { Dialect } from 'sequelize/types/lib/sequelize';
 
-const env = process.env.NODE_ENV || 'development';
+type ENV_TYPE = 'development' | 'test' | 'production';
+interface ENV_TYPE_INFO {
+  [key: string]: any;
+}
 
-const configJson = config[env];
+const env: ENV_TYPE = (process.env.NODE_ENV || 'development') as ENV_TYPE;
+//type ENV_TYPE_INFO
+const configRaw: Record<ENV_TYPE, ENV_TYPE_INFO> = config;
+const configJson: ENV_TYPE_INFO = configRaw[env];
 const sequelize = new Sequelize(configJson.database, configJson.username, configJson.password, configJson);
 
 // sequelize.addModels([__dirname + '/**/*.ts']);
