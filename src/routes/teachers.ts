@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Request, Response, Router } from 'express';
 
 import controller from '../controllers/teachers';
 import { getArrayMetadata } from '../libs/calc';
@@ -8,6 +8,14 @@ import { formatDate } from '../libs/util';
 //import * as calc from '../libs/calc.d';
 
 const router = Router();
+interface CustomRequest<T> extends Request {
+  body: T;
+}
+interface PostDTO {
+  id?: number;
+  first: string;
+  last: string;
+}
 
 router
   .route('/')
@@ -19,7 +27,8 @@ router
     res.json({ teachers, timestamp: formatDate(new Date()), result: result });
   })
   .post(async (req, res, next) => {
-    const result = await controller.create(req.body.first, req.body.last);
+    const data = req.body as PostDTO;
+    const result = await controller.create(data.first, data.last);
     res.json(result);
   });
 
